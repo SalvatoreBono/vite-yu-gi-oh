@@ -2,7 +2,7 @@
 export default {
   props: {
     singleInfo: {
-      type: String,
+      type: Object,
     },
   },
   components: {},
