@@ -28,10 +28,14 @@ export default {
           <span class="pe-3">Archetype</span>
         </button>
         <ul class="dropdown-menu">
-          <li v-for="singleArchetype in store.card">
-            <a class="dropdown-item" href="#">{{
-              singleArchetype.archetype
-            }}</a>
+          <li>
+            <a class="dropdown-item" href="#"> Alien </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#"> Noble Knight </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#"> Melodious </a>
           </li>
         </ul>
       </div>
