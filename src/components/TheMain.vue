@@ -1,7 +1,10 @@
 <script>
+import TheInfoCard from "../components/TheInfoCard.vue";
 import { store } from "../store";
 export default {
-  components: {},
+  components: {
+    TheInfoCard,
+  },
   data() {
     return {
       store,
@@ -13,7 +16,7 @@ export default {
 </script>
 
 <template>
-  <div class="bg-main">
+  <div class="bg-main pb-5">
     <div class="container">
       <div class="dropdown pt-3 pb-3">
         <button
@@ -22,30 +25,24 @@ export default {
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
-          Alien
+          <span class="pe-3">Archetype</span>
         </button>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Action</a></li>
-          <li><a class="dropdown-item" href="#">Another action</a></li>
-          <li><a class="dropdown-item" href="#">Something else here</a></li>
+          <li v-for="singleArchetype in store.card">
+            <a class="dropdown-item" href="#">{{
+              singleArchetype.archetype
+            }}</a>
+          </li>
         </ul>
       </div>
       <div class="bg-white p-5">
         <div class="bg-dark text-white fw-bold p-2">Found 39 cards</div>
         <div class="d-flex flex-wrap gap-3 justify-content-center">
+          <!-- Fare un ciclo for della singola carta -->
           <div v-for="singleCard in store.card" class="structure">
             <div class="card">
-              <img
-                :src="singleCard.card_images[0].image_url"
-                class="card-img-top"
-                alt="..."
-              />
-              <div class="card-body text-center bg-main pt-4 pb-4">
-                <h5 class="card-title text-uppercase text-white">
-                  {{ singleCard.name }}
-                </h5>
-                <div class="card-text">{{ singleCard.archetype }}</div>
-              </div>
+              <!-- Fare un componente per le singole informazioni della carta utilizzando i props -->
+              <TheInfoCard :singleInfo="singleCard"></TheInfoCard>
             </div>
           </div>
         </div>
@@ -58,10 +55,10 @@ export default {
 .bg-main {
   background-color: rgb(212, 143, 56);
 }
+.card {
+  height: 100%;
+}
 .structure {
   flex-basis: calc(100% / 5 - 1rem);
-}
-img {
-  width: 100%;
 }
 </style>

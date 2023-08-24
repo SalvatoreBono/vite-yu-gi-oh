@@ -1,6 +1,4 @@
 <script>
-/* import  from './components/'; */
-
 export default {
   components: {},
   data() {
