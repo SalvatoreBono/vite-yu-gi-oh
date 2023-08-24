@@ -1,6 +1,6 @@
 <script>
 import TheInfoCard from "../components/TheInfoCard.vue";
-import { store } from "../store";
+import { ExportApi, store } from "../store";
 export default {
   components: {
     TheInfoCard,
@@ -11,7 +11,9 @@ export default {
     };
   },
   methods: {},
-  mounted() {},
+  mounted() {
+    ExportApi();
+  },
 };
 </script>
 
