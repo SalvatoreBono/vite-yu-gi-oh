@@ -25,9 +25,10 @@ export function ExportApi(url) {
     store.loading = true;
 
     /* creo una costante url vuota */
-    /* se archeype è uguale a stringa vuota do come url https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0  */
     let currentUrl = "";
+    /* se archeype è uguale a stringa vuota do come url https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0  */
     if (store.archetypeTextSelected === "") {
+
         /* se url non esiste (è indefinito, stringa vuota o null) allora currentUrl = https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0 */
         /* se url esiste dico che currentUrl è uguale a l'argomento stesso*/
         currentUrl = url ? url : "https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0";
