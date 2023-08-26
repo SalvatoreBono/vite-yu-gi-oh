@@ -5,6 +5,7 @@ export const store = reactive({
     card: [],
     archetype: [],
     loading: false,
+    cardNumber: 0,
 });
 
 export function ExportApi(archetype) {
@@ -21,6 +22,7 @@ export function ExportApi(archetype) {
     axios.get(url).then((response) => {
         store.card = response.data.data;
         store.loading = false;
+        store.cardNumber = store.card.length;
     })
 
 }

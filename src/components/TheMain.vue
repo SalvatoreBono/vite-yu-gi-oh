@@ -40,7 +40,9 @@ export default {
         </select>
       </div>
       <div class="bg-white p-5">
-        <div class="bg-dark text-white fw-bold p-2">Found 39 cards</div>
+        <div class="bg-dark text-white fw-bold p-2">
+          Found {{ store.cardNumber }} cards
+        </div>
         <div class="d-flex flex-wrap gap-3 justify-content-between">
           <!-- Fare un ciclo for della singola carta -->
           <div v-for="singleCard in store.card" class="structure">
