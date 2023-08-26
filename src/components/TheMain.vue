@@ -9,7 +9,6 @@ export default {
   },
   data() {
     return {
-      archetype: "",
       store,
     };
   },
@@ -28,13 +27,12 @@ export default {
   <div class="bg-main pb-5">
     <div class="container">
       <div class="col-2 pt-3 pb-3">
-        <select v-model="archetype" class="form-select">
+        <select v-model="store.archetypeTextSelected" class="form-select">
+          <option value="" selected>Choose your archetype</option>
+
           <!-- popolare dinamicamente con un ciclo gli archetipi -->
-          <!-- al click avviare ExportApi (che serve per spawnare le carte) che come argomento ha il v-model di "archetype" -->
-          <option
-            @click="ExportApi(archetype)"
-            v-for="singleArchetype in store.archetype"
-          >
+          <!-- al click avviare ExportApi (che serve per spawnare le carte)-->
+          <option @click="ExportApi" v-for="singleArchetype in store.archetype">
             {{ singleArchetype.archetype_name }}
           </option>
         </select>
