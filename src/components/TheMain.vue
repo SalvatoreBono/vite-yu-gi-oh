@@ -1,7 +1,13 @@
 <script>
 import TheInfoCard from "../components/TheInfoCard.vue";
 import TheLoader from "../components/TheLoader.vue";
-import { ExportApi, ExportApiArchetype, store } from "../store";
+import {
+  ExportApi,
+  ExportApiArchetype,
+  NextBtn,
+  PrevBtn,
+  store,
+} from "../store";
 export default {
   components: {
     TheInfoCard,
@@ -15,6 +21,8 @@ export default {
   methods: {
     /*devo richiamare la funzione ExportApi perchè sennò non viene calcolata come funzione al click */
     ExportApi,
+    NextBtn,
+    PrevBtn,
   },
   mounted() {
     ExportApi();
@@ -37,7 +45,13 @@ export default {
           </option>
         </select>
       </div>
-      <div class="bg-white p-5">
+      <button @click="PrevBtn" type="button" class="btn btn-light me-3">
+        Prev Page
+      </button>
+      <button @click="NextBtn" type="button" class="btn btn-light">
+        Next Page
+      </button>
+      <div class="bg-white p-5 mt-3">
         <div class="bg-dark text-white fw-bold p-2">
           Found {{ store.cardNumber }} cards
         </div>
