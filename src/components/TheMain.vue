@@ -1,18 +1,23 @@
 <script>
 import TheInfoCard from "../components/TheInfoCard.vue";
-import { ExportApi, store } from "../store";
+import { ExportApi, ExportApiArchetype, store } from "../store";
 export default {
   components: {
     TheInfoCard,
   },
   data() {
     return {
+      archetype: "",
       store,
     };
   },
-  methods: {},
+  methods: {
+    /*devo richiamare la funzione ExportApi perchè sennò non viene calcolata come funzione al click */
+    ExportApi,
+  },
   mounted() {
     ExportApi();
+    ExportApiArchetype();
   },
 };
 </script>
@@ -20,26 +25,17 @@ export default {
 <template>
   <div class="bg-main pb-5">
     <div class="container">
-      <div class="dropdown pt-3 pb-3">
-        <button
-          class="btn btn-secondary rounded-0 dropdown-toggle bg-white text-dark"
-          type="button"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          <span class="pe-3">Archetype</span>
-        </button>
-        <ul class="dropdown-menu">
-          <li>
-            <a class="dropdown-item" href="#"> Alien </a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="#"> Noble Knight </a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="#"> Melodious </a>
-          </li>
-        </ul>
+      <div class="col-2 pt-3 pb-3">
+        <select v-model="archetype" class="form-select">
+          <!-- popolare dinamicamente con un ciclo gli archetipi -->
+          <!-- al click avviare ExportApi (che serve per spawnare le carte) che come argomento ha il v-model di "archetype" -->
+          <option
+            @click="ExportApi(archetype)"
+            v-for="singleArchetype in store.archetype"
+          >
+            {{ singleArchetype.archetype_name }}
+          </option>
+        </select>
       </div>
       <div class="bg-white p-5">
         <div class="bg-dark text-white fw-bold p-2">Found 39 cards</div>
