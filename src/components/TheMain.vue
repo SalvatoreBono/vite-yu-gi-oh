@@ -1,9 +1,11 @@
 <script>
 import TheInfoCard from "../components/TheInfoCard.vue";
+import TheLoader from "../components/TheLoader.vue";
 import { ExportApi, ExportApiArchetype, store } from "../store";
 export default {
   components: {
     TheInfoCard,
+    TheLoader,
   },
   data() {
     return {
@@ -48,6 +50,8 @@ export default {
             </div>
           </div>
         </div>
+        <!-- Mostra il loader solo quando è true -->
+        <TheLoader v-if="store.loading"></TheLoader>
       </div>
     </div>
   </div>
@@ -55,7 +59,7 @@ export default {
 
 <style lang="scss" scoped>
 .bg-main {
-  background-color: oklch(70% 0.163 123.88);
+  background-color: rgb(212, 143, 56);
 }
 .card {
   height: 100%;
