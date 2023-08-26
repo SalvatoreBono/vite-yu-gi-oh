@@ -31,6 +31,6 @@ export default {
 
 <style lang="scss" scoped>
 .bg-main {
-  background-color: rgb(212, 143, 56);
+  background-color: oklch(45.8% 0.175 357.88);
 }
 </style>

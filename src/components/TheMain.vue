@@ -34,7 +34,7 @@ export default {
 <template>
   <div class="bg-main pb-5">
     <div class="container">
-      <div class="col-2 pt-3 pb-3">
+      <div class="col-3 pt-3 pb-3">
         <select v-model="store.archetypeTextSelected" class="form-select">
           <option value="" selected>Choose your archetype</option>
 
@@ -73,7 +73,7 @@ export default {
 
 <style lang="scss" scoped>
 .bg-main {
-  background-color: rgb(212, 143, 56);
+  background-color: oklch(45.8% 0.175 357.88);
 }
 .card {
   height: 100%;
