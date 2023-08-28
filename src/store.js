@@ -36,7 +36,7 @@ export function ExportApi(url) {
     } else {
 
         /* altrimenti do come url = `https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=${archetype}&num=20&offset=0` */
-        currentUrl = `https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=${store.archetypeTextSelected}&num=20&offset=0`
+        currentUrl = `https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=${store.archetypeTextSelected}`
 
 
     }
